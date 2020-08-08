@@ -13,6 +13,3 @@ class Node {
 
 
 $eval = new Node($expr);
-
-
-// donner des priotier au signe

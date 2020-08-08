@@ -16,10 +16,15 @@ class Shunting_yard
     public $right  = 0;
     public $result = 0;
 
-
-    function createNpi($expr)
+    function __construct($expr)
     {
         $this->expr = str_split($expr);
+        $this->createNpi();
+        $this->solveNpi();
+    }
+
+    function createNpi()
+    {
         while (!empty($this->expr)) {
 
             if (is_numeric($this->expr[0])) {
@@ -68,6 +73,7 @@ class Shunting_yard
             if (is_numeric($this->expr[0])) {
                 array_push($this->stack, array_shift($this->expr));
             } else {
+                
                 $this->right = array_pop($this->stack);
                 $this->left = array_pop($this->stack);
 
@@ -100,8 +106,5 @@ class Shunting_yard
     }
 }
 
-// $alg = new Shunting_yard();
-// $alg->createNpi('((3*5-4*7)/1+1)-1/8*8+3');
-// $alg->solveNpi();
-// $alg->createNpi('1+4/2');
-// $alg->solveNpi();
+// $alg = new Shunting_yard('((3*5-4*7)/1+1)-1/8*8+3');
+// $alg = new Shunting_yard('-1/8*8+3');
