@@ -114,8 +114,18 @@ class Eval_expr
             }
         }
         $this->result = array_pop($this->stack);
-        echo $this->result;
+        echo $this->result . "\n";
+    }
+
+    function getResult() {
+        return $this->result;
     }
 }
 
-$alg = new Eval_expr('((3*5-4*7)/1+1)-1/8*8+3');
+// $alg = new Eval_expr('((3*5-4*7)/1+1)-1/8*8+3'); // -10
+// $alg = new Eval_expr('.7+.332'); // 1.032
+// $alg = new Eval_expr('(144+(12*2))/2+10'); // 94
+
+
+// $alg = new Eval_expr('(-13+20*2+(8/2)) + 0.42'); // 31.42
+// echo $alg->getResult(); // return result
