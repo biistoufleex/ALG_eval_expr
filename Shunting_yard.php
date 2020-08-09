@@ -22,7 +22,6 @@ class Eval_expr
 
         preg_match_all('/(\(|\d*(?:\.\d+)?|-|\+|\/|\*|\%|\))/', $expr, $output);
         $this->expr = $output[0];
-        print_r($this->expr);
         $this->createNpi();
         $this->solveNpi();
     }
@@ -75,7 +74,6 @@ class Eval_expr
     function solveNpi()
     {
         $this->expr = $this->npi;
-        echo implode($this->expr);
         $this->npi = [];
 
         while (!empty($this->expr)) {
@@ -116,8 +114,8 @@ class Eval_expr
             }
         }
         $this->result = array_pop($this->stack);
-        echo "Resultat: " . $this->result . "\n";
+        echo $this->result;
     }
 }
 
-// $alg = new Eval_expr('((3*5-4*7)/1+1)-1/8*8+3');
+$alg = new Eval_expr('((3*5-4*7)/1+1)-1/8*8+3');
